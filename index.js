@@ -14,4 +14,16 @@ let myCollection = [
       count: 1,
       whatILike: "Eat. Sleep. Code. Repeat :)"
     }
-  ];
+];
+//console.log(myCollection);
+
+function describeItem(item){
+  for (let i=0;i <myCollection.length;i++){
+    if(myCollection[i].count=== 1){
+      console.log(`I have a ${myCollection[i].name} Here's what I like about it:${myCollection[i].whatILike}`)
+    }
+   // console.log(myCollection[i].count);
+  }  
+}
+//console.log(myCollection[0].count);
+describeItem();
