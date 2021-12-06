@@ -1,29 +1,41 @@
-let myCollection = [
-    {
-      name: "School of Code mug",
-      count: 1,
-      whatILike: "It has my cute pixel character on it!"
-    },
-    {
-      name: "School of Code hat",
-      count: 2,
-      whatILike: "An often overlooked fashion accessory"
-    },
-    {
-      name: "School of Code pillow",
-      count: 1,
-      whatILike: "Eat. Sleep. Code. Repeat :)"
-    }
-];
-//console.log(myCollection);
+import myCollection from './collection.js';
+import chalk from 'chalk';
+import isEven from 'is-even';
 
-function describeItem(item){
-  for (let i=0;i <myCollection.length;i++){
-    if(myCollection[i].count=== 1){
-      console.log(`I have a ${myCollection[i].name} Here's what I like about it:${myCollection[i].whatILike}`)
-    }
-   // console.log(myCollection[i].count);
-  }  
+let numberOfItems = 0;
+
+function describeItem(item) {
+  if (item.count === 1) {
+    numberOfItems++;
+    console.log(
+      `I have a ${chalk.cyan.bgGrey(item.name)}. Here's what I like about it: ${
+        item.whatILike
+      }`
+    );
+  } else {
+    numberOfItems += item.count;
+    console.log(
+      `I have ${chalk.yellow.bold(item.count)} ${chalk.cyan.bold(
+        item.name + 's'
+      )}. Here's what I like about it: ${item.whatILike}`
+    );
+  }
 }
-//console.log(myCollection[0].count);
-describeItem();
+
+function describeCollection(array) {
+  for (let i = 0; i < array.length; i++) {
+    describeItem(array[i]);
+  }
+}
+describeCollection(myCollection);
+
+//npm isEven
+if (isEven(numberOfItems)) {
+  console.log(
+    `My collection has an even number of objects. The total is ${numberOfItems}`
+  );
+} else {
+  console.log(
+    `My collection has an odd number of objects. The total is ${numberOfItems}`
+  );
+}
