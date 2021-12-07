@@ -1,3 +1,4 @@
+
 import myCollection from './collection.js';
 import chalk from 'chalk';
 import isEven from 'is-even';
@@ -39,3 +40,4 @@ if (isEven(numberOfItems)) {
     `My collection has an odd number of objects. The total is ${numberOfItems}`
   );
 }
+
